@@ -14,6 +14,7 @@ Usage: java -cp target\ysoserial-0.0.6-SNAPSHOT-all.jar serialkillerkiller.Main 
                 Click1 [org.apache.click:click-nodeps:2.3.0, javax.servlet:javax.servlet-api:3.1.0]
                 Clojure [org.clojure:clojure:1.8.0]
                 CommonsBeanutils1 [commons-beanutils:commons-beanutils:1.9.2, commons-collections:commons-collections:3.1, commons-logging:commons-logging:1.2]
+                CommonsBeanutils2NoCC [commons-beanutils:commons-beanutils:1.9.2, commons-logging:commons-logging:1.2]
                 CommonsCollections1 [commons-collections:commons-collections:3.1]
                 CommonsCollections2 [org.apache.commons:commons-collections4:4.0]
                 CommonsCollections3 [commons-collections:commons-collections:3.1]
