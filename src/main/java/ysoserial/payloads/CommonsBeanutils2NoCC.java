@@ -13,7 +13,7 @@ import java.util.PriorityQueue;
 
 @SuppressWarnings({ "rawtypes", "unchecked" })
 @Dependencies({"commons-beanutils:commons-beanutils:1.9.2", "commons-logging:commons-logging:1.2"})
-@Authors({ Authors.FROHOFF })
+@Authors({ Authors.PHITHON })
 public class CommonsBeanutils2NoCC implements ObjectPayload<Object> {
 
 	public Object getObject(final String command) throws Exception {
