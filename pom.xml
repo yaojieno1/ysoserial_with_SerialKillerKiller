@@ -22,11 +22,18 @@
 				<version>3.5.1</version>
 				<configuration>
 					<!-- maximize compatibility -->
-					<source>1.6</source>
-					<target>1.6</target>
+					<source>8</source>
+					<target>8</target>
 					<!-- ignore noisy internal api warnings -->
                     <compilerArgument>-XDignore.symbol.file</compilerArgument>
                     <fork>true</fork>
+                    <excludes>
+                        <exclude>**/serialkillerkiller/bypass/Apache*.java</exclude>
+                        <exclude>**/serialkillerkiller/bypass/WebSphere*.java</exclude>
+                        <exclude>**/serialkillerkiller/bypass/Weblogic*.java</exclude>
+                        <exclude>**/serialkillerkiller/bypass/ApacheWebBeans*.java</exclude>
+                        <exclude>**/serialkillerkiller/bypass/Mockito*.java</exclude>
+                    </excludes>
                 </configuration>
 			</plugin>
 			<plugin>
@@ -39,7 +46,9 @@
 							<mainClass>ysoserial.GeneratePayload</mainClass>
 						</manifest>
 					</archive>
-                    <descriptor>assembly.xml</descriptor>
+                    <descriptors>
+                        <descriptor>assembly.xml</descriptor>
+                    </descriptors>
                 </configuration>
 				<executions>
 					<execution>
@@ -444,5 +453,5 @@
             <name>GitHub Packages</name>
             <url>https://maven.pkg.github.com/frohoff/ysoserial</url>
         </repository>
-    </distributionManagement>	
+    </distributionManagement>
 </project>
