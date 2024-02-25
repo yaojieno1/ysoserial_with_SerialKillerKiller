@@ -7,7 +7,6 @@ import ysoserial.payloads.util.Gadgets;
 import ysoserial.payloads.util.PayloadRunner;
 import ysoserial.payloads.util.Reflections;
 
-import java.math.BigInteger;
 import java.util.PriorityQueue;
 
 @SuppressWarnings({ "rawtypes", "unchecked" })
